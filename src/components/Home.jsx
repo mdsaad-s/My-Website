@@ -45,49 +45,63 @@ const WhoWeAre = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-12 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-extrabold relative inline-block group">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-extrabold relative inline-block group">
             Who{" "}
             <span className="text-blue-600 group-hover:text-blue-700 transition">
               We Are
             </span>
-            <span
-              className="absolute left-0 -bottom-2 h-[3px] w-full bg-blue-600
-                         scale-x-0 group-hover:scale-x-100
-                         transition-transform origin-left duration-300"
-            />
+            <span className="absolute left-0 -bottom-2 h-[3px] w-full bg-blue-600
+                             scale-x-0 group-hover:scale-x-100
+                             transition-transform origin-left duration-300"/>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-3xl mx-auto">
+
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto text-sm md:text-base">
             Compassionate care, advanced technology, and trusted medical expertise.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        {/* Main Grid */}
+        <div className="grid md:grid-cols-2 gap-10 items-center">
 
           {/* Image */}
-          <div className="flex justify-center">
-            <img
-              src={doctorImg}
-              alt="Patient Care"
-              className="w-80 rounded-2xl shadow-lg
-                         hover:scale-105 hover:shadow-2xl
-                         transition duration-500"
-            />
+<div className="relative flex justify-center md:justify-end">
+  <div className="relative group flex justify-center">
+  <img
+    src={doctorImg}
+    alt="Patient Care"
+    className="w-full max-w-md md:max-w-xl lg:max-w-2xl
+               rounded-3xl shadow-2xl
+               transition-all duration-700
+               group-hover:scale-105"
+  />
+
+  {/* Soft Glow Effect */}
+  <div className="absolute inset-0 rounded-3xl
+                  bg-blue-500/10 opacity-0
+                  group-hover:opacity-100
+                  transition duration-500 blur-2xl -z-10">
+  </div>
+</div>
+
+
+            {/* Floating Badge */}
+            <div className="absolute -bottom-4 right-4 bg-blue-600 text-white
+                            px-4 py-2 rounded-full text-xs shadow-lg
+                            animate-bounce">
+              15+ Years Experience
+            </div>
           </div>
 
-          {/* Content */}
-          <div
-            className="md:col-span-2 bg-white p-10 rounded-2xl
-                       shadow-lg hover:shadow-2xl
-                       hover:-translate-y-1
-                       transition-all duration-300
-                       border border-transparent hover:border-blue-500"
-          >
-            <p className="text-gray-700 text-lg leading-relaxed">
+          {/* Content Card */}
+          <div className="bg-white p-8 rounded-3xl shadow-xl
+                          hover:shadow-2xl transition-all duration-300">
+
+            <p className="text-gray-700 leading-relaxed">
               <span className="font-semibold text-blue-600">
                 Timely Health Care Hospital
               </span>{" "}
@@ -95,12 +109,38 @@ const WhoWeAre = () => {
               affordable, and patient-first healthcare.
             </p>
 
-            <p className="mt-4 text-gray-700 text-lg leading-relaxed">
+            <p className="mt-4 text-gray-700 leading-relaxed">
               We blend modern technology, expert doctors, and compassionate
               care to ensure faster recovery and complete patient satisfaction.
             </p>
 
-            {/* Icons */}
+            {/* Stats Row (New Interactive Part) */}
+            <div className="grid grid-cols-3 gap-6 mt-6 text-center">
+
+              <div className="group">
+                <h3 className="text-2xl font-bold text-blue-600 group-hover:scale-110 transition">
+                  10K+
+                </h3>
+                <p className="text-xs text-gray-500">Happy Patients</p>
+              </div>
+
+              <div className="group">
+                <h3 className="text-2xl font-bold text-blue-600 group-hover:scale-110 transition">
+                  25+
+                </h3>
+                <p className="text-xs text-gray-500">Expert Doctors</p>
+              </div>
+
+              <div className="group">
+                <h3 className="text-2xl font-bold text-blue-600 group-hover:scale-110 transition">
+                  24/7
+                </h3>
+                <p className="text-xs text-gray-500">Emergency Care</p>
+              </div>
+
+            </div>
+
+            {/* Feature Icons */}
             <div className="mt-6 grid sm:grid-cols-3 gap-4">
               {[
                 { icon: <FaHeart />, title: "Compassionate Care" },
@@ -109,36 +149,38 @@ const WhoWeAre = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-3 p-4 rounded-xl
+                  className="flex flex-col items-center p-4 rounded-xl
                              bg-gray-50 hover:bg-blue-600
-                             transition group"
+                             hover:shadow-lg transition group"
                 >
                   <div className="text-blue-600 text-xl group-hover:text-white">
                     {item.icon}
                   </div>
-                  <p className="font-medium text-gray-700 group-hover:text-white">
+                  <p className="mt-2 text-sm font-medium text-gray-700 group-hover:text-white text-center">
                     {item.title}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Read More → About Page */}
+            {/* Button */}
             <button
               onClick={() => navigate("/about")}
-              className="mt-8 px-7 py-3 rounded-full
-                         border border-blue-600 text-blue-600 font-medium
-                         hover:bg-blue-600 hover:text-white
-                         hover:shadow-lg transition"
+              className="mt-8 px-6 py-2.5 rounded-full
+                         bg-blue-600 text-white font-medium
+                         hover:bg-blue-700 hover:shadow-lg
+                         transition"
             >
               Read More →
             </button>
           </div>
+
         </div>
       </div>
     </section>
   );
 };
+
 
 /* ================= HOME ================= */
 const Home = () => {
@@ -149,17 +191,40 @@ const Home = () => {
 
       {/* HERO */}
       {/* <section className="py-16 px-4 bg-white"> */}
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-4 pb-14" >
-          <div>
-            <h1 className="text-5xl font-extrabold mb-5">
-              Trusted Healthcare
-              <span className="block text-blue-600">
-                Just Around the Corner
-              </span>
-            </h1>
-            <p className="text-gray-600 mb-6">
-              Expert doctors and compassionate care closer to your home.
-            </p>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center px-4 py-8 md:py-12">
+
+  <div className="group">
+
+    <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+
+      {/* First Line */}
+      <span className="block transition-all duration-500 
+                       group-hover:tracking-wider">
+        Trusted Healthcare
+      </span>
+
+      {/* Second Line */}
+      <span className="block text-blue-600 relative inline-block">
+
+        Just Around the Corner
+
+        {/* Animated Underline */}
+        <span className="absolute left-0 -bottom-2 w-full h-[3px] 
+                         bg-blue-600 scale-x-0 
+                         group-hover:scale-x-100 
+                         origin-left transition-transform duration-500">
+        </span>
+
+      </span>
+    </h1>
+
+    <p className="text-gray-600 mb-6 text-lg 
+                  transition duration-500 
+                  group-hover:text-gray-800">
+      Expert doctors and compassionate care closer to your home.
+    </p>
+
+
             <a
               href="https://wa.me/919999999999"
               className="bg-blue-600 text-white px-6 py-3 rounded-lg
@@ -170,16 +235,22 @@ const Home = () => {
           </div>
 
           <img
-            src={doctorImg}
-            alt="Doctor"
-            className="w-full max-w-md rounded-2xl shadow-xl"
-          />
+  src={doctorImg}
+  alt="Doctor"
+  className="w-full max-w-lg md:max-w-xl lg:max-w-2xl
+             rounded-3xl shadow-2xl
+             transition-all duration-700
+             hover:scale-105 hover:shadow-3xl"
+/>
+
         </div>
       {/* </section> */}
       {/* ================= HERO SECTION ================= */}
 
 {/* ================= HERO ================= */}
-<section style={{paddingTop:'20px'}} className="relative min-h-screen flex items-center overflow-hidden pt-10">
+<section 
+  className="relative h-[75vh] flex items-center overflow-hidden">
+
 
   {/* BACKGROUND IMAGE */}
   <img style={{height:'550px'}}
@@ -250,7 +321,7 @@ const Home = () => {
       <WhoWeAre />
 
       {/* SERVICES */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-5 px- 2 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-14">
             Our Services
