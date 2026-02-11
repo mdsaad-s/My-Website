@@ -221,7 +221,7 @@ const Home = () => {
     <p className="text-gray-600 mb-6 text-lg 
                   transition duration-500 
                   group-hover:text-gray-800">
-      Expert doctors and compassionate care closer to your home.
+      Expert doctors and compassionate care closer to your homes.
     </p>
 
 
